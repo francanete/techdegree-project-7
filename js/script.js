@@ -3,15 +3,14 @@
  */
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.getElementById('name').focus();
-//     otherJobRole.style.visibility="hidden";
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('name').focus();
+});
 
-focusMethod = function getFocus() {
-    document.getElementById("name").focus();
-  }
-focusMethod();
+// focusMethod = function getFocus() {
+//     document.getElementById("name").focus();
+//   }
+// focusMethod();
 
 
 /*      "Job Role" section:
@@ -29,3 +28,9 @@ jobRole.addEventListener('change', e => {
         otherJobRole.hidden = true;
     }
 });
+
+/*      "T-Shirt Info" section
+ * 
+ */
+
+
