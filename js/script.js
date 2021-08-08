@@ -34,3 +34,27 @@ jobRole.addEventListener('change', e => {
  */
 
 
+const design = document.getElementById('design');
+const color = document.getElementById('color');
+const colorOptions = document.getElementById('color').children;
+
+color.disabled = true;
+
+
+design.addEventListener('change', e => {
+    color.disabled = false;
+    for (let i = 0; i < colorOptions.length; i++){
+        const value = e.target.value;
+        const dataTheme = colorOptions[i].getAttribute('data-theme');
+        if( value === dataTheme ){
+            colorOptions[i].hidden = false;
+        } 
+        if (value !== dataTheme){
+            colorOptions[i].hidden = true;
+        }
+
+        
+    }
+
+})
+
