@@ -58,3 +58,13 @@ design.addEventListener('change', e => {
 
 })
 
+/*      "Register for Activities" section
+ * 
+ */
+
+const registerForActivities = document.getElementById('activities');
+const displayTotal = document.getElementById('activities-cost');
+const totalCost = 0;
+
+console.log(registerForActivities);
+console.log(displayTotal);
