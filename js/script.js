@@ -64,7 +64,46 @@ design.addEventListener('change', e => {
 
 const registerForActivities = document.getElementById('activities');
 const displayTotal = document.getElementById('activities-cost');
-const totalCost = 0;
+let totalCost = 0;
 
-console.log(registerForActivities);
-console.log(displayTotal);
+registerForActivities.addEventListener('change', e => {
+    const dataCost = +e.target.getAttribute('data-cost');
+    if (e.target.checked) {
+        totalCost = totalCost + dataCost;
+    } else {
+        totalCost = totalCost - dataCost;
+    }
+    displayTotal.innerHTML = `Total: $${totalCost}`;
+})
+
+
+/*      "Payment Info" section
+ * 
+ */
+
+const paymentMethod = document.getElementById('payment');
+const creditCard = document.getElementById('credit-card');
+const paypal = document.getElementById('paypal');
+const bitcoin = document.getElementById('bitcoin');
+
+// creditCard.hidden = true;
+paypal.hidden = true;
+bitcoin.hidden = true;
+
+console.log(paymentMethod);
+
+const paymentSelected = paymentMethod.children;
+paymentSelected.selected;
+
+console.log(paymentSelected);
+
+paymentMethod.addEventListener('change', e => {
+    if (paymentSelected === e.target){
+        paymentSelected.hidden = false;
+    }
+    
+
+
+    console.log(paymentSelected)
+})
+
