@@ -51,11 +51,8 @@ design.addEventListener('change', e => {
         } 
         if (value !== dataTheme){
             colorOptions[i].hidden = true;
-        }
-
-        
+        } 
     }
-
 })
 
 /*      "Register for Activities" section
@@ -65,16 +62,23 @@ design.addEventListener('change', e => {
 const registerForActivities = document.getElementById('activities');
 const displayTotal = document.getElementById('activities-cost');
 let totalCost = 0;
+let activities = 0;
 
 registerForActivities.addEventListener('change', e => {
     const dataCost = +e.target.getAttribute('data-cost');
+
     if (e.target.checked) {
+        
         totalCost = totalCost + dataCost;
+        activities = activities +1;
     } else {
         totalCost = totalCost - dataCost;
+        activities = activities -1;
     }
     displayTotal.innerHTML = `Total: $${totalCost}`;
+    console.log(activities);
 })
+
 
 
 /*      "Payment Info" section
@@ -86,24 +90,85 @@ const creditCard = document.getElementById('credit-card');
 const paypal = document.getElementById('paypal');
 const bitcoin = document.getElementById('bitcoin');
 
-// creditCard.hidden = true;
 paypal.hidden = true;
 bitcoin.hidden = true;
 
-console.log(paymentMethod);
 
-const paymentSelected = paymentMethod.children;
-paymentSelected.selected;
+// const paymentSelected = paymentMethod.children[1].setAttribute('selected', '');
 
-console.log(paymentSelected);
 
 paymentMethod.addEventListener('change', e => {
-    if (paymentSelected === e.target){
-        paymentSelected.hidden = false;
+    if (e.target.value === 'paypal'){
+        creditCard.hidden = true;
+        paypal.hidden = false;
+        bitcoin.hidden = true;
+    } else if (e.target.value === 'bitcoin'){
+        creditCard.hidden = true;
+        paypal.hidden = true;
+        bitcoin.hidden = false;
+    } else {
+        creditCard.hidden = false;
+        paypal.hidden = true;
+        bitcoin.hidden = true;
+
     }
-    
+})
 
 
-    console.log(paymentSelected)
+/*      Form Validation
+ * 
+ */
+
+const userName = document.getElementById('name');
+const email = document.getElementById('email');
+const cardNumber = document.getElementById('cc-num')
+const zipCode = document.getElementById('zip');
+const cvv = document.getElementById('cvv');
+const form = document.querySelector('form');
+
+/*  Validation functions */
+
+const nameValitation = () => {
+    const userNameValue = userName.value;
+    return /^[a-zA-Z ]+$/.test(userNameValue);
+}
+
+const emailValidation = () => {
+    const emailValue = email.value;
+    return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.com$/i.test(emailValue);
+  }
+
+const activitiesValidation = () => {
+    const activitiesChecked = activities >= 1;
+    return activitiesChecked; 
+}
+
+const cardNumberValidation = () => {
+    const cardNumberValue = cardNumber.value;
+    return /^\d{13,16}$/.test(cardNumberValue);
+} 
+
+const zipValidation = () => {
+    const zipValue = zipCode.value;
+    return /^\d{5}$/.test(zipValue);
+}
+
+const cvvValidator = () => {
+    const cvvValue = cvv.value;
+    return /^\d{3}$/.test(cvvValue);
+}
+
+
+form.addEventListener('submit', e => {
+    if ( nameValitation() && emailValidation() && activitiesValidation() ){
+
+    } else if (paymentMethod.value === 'credit-card'){
+        if (cardNumberValidation() && zipValidation() && cvvValidator() ){
+        } else {
+            e.preventDefault()
+        }
+    } else {
+        e.preventDefault();
+    }
 })
 
