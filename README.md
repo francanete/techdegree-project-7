@@ -3,7 +3,8 @@
 <h2>Description</h2>
 <p>This interactive registration form, takes the necessary data from the user and apply input validations before submitting the form.</p> 
 
-
+<h3>Key features</h3>
+<p><strong>Real-time error message:</strong> this function applies real time input validation.</p>
 
 
 <h3 align="left">Connect with me:</h3>
