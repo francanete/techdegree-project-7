@@ -37,9 +37,11 @@ design.addEventListener('change', e => {
         const dataTheme = colorOptions[i].getAttribute('data-theme');
         if( value === dataTheme ){
             colorOptions[i].hidden = false;
+            colorOptions[i].setAttribute('selected', true);
         } 
         if (value !== dataTheme){
             colorOptions[i].hidden = true;
+            colorOptions[i].removeAttribute('selected');
         } 
     }
 })
