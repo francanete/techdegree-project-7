@@ -4,9 +4,9 @@
 <p>This interactive registration form, takes the necessary data from the user and apply input validations before submitting the form.</p> 
 
 <h3>Key features</h3>
-<p><strong>Real-time error message:</strong> this function applies real time input validation and shows the user a useful error message.</p>
+<p><strong>Real-time error message:</strong> this function provides real-time input validation and shows to the user a useful error message.</p>
 
-<p><strong>Conditional error message:</strong> this functionality checks what type of error has been detected, then shows to the user a real-time error message for the specific error.</p>
+<p><strong>Conditional error message:</strong> this functionality checks what type of error has been detected, then shows to the user a real-time error message for that specific error.</p>
 
 ```
 email.addEventListener('keyup', e => {
