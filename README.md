@@ -4,7 +4,21 @@
 <p>This interactive registration form, takes the necessary data from the user and apply input validations before submitting the form.</p> 
 
 <h3>Key features</h3>
-<p><strong>Real-time error message:</strong> this function applies real time input validation.</p>
+<p><strong>Real-time error message:</strong> this function applies real time input validation and shows the user a useful error message.</p>
+
+<p><strong>Conditional error message:</strong> this functionality checks what type of error has been detected, then shows to the user a real-time error message for the specific error.</p>
+
+```
+email.addEventListener('keyup', e => {
+    if(email.value === ''){
+        emailHint.style.display = 'block';
+        emailHint.innerHTML = 'Email field cannot be blank';
+    } else if (!emailValidation()){
+        emailHint.innerHTML = 'Email address must be formatted correctly';
+    }
+    emailValidation();
+})
+```
 
 
 <h3 align="left">Connect with me:</h3>
