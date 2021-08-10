@@ -123,7 +123,11 @@ const activitiesBox = document.getElementById('activities-box');
 
 const emailHint = document.getElementById('email-hint');
 
-/* Validator function */
+/** Validator function 
+*   @param {Element Object} input - represents the input element where we are appliying the validation.
+*   @param {Boolean} test - results from testing the validation pattern.
+*/
+
 
 function errorValidator(input, test){
     const parent = input.parentElement;
